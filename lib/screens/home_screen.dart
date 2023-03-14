@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (context) => HomeScreen(),
+      builder: (context) => const HomeScreen(),
       settings: const RouteSettings(name: routeName),
     );
   }
