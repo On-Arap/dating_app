@@ -34,9 +34,9 @@ class HomeScreen extends StatelessWidget {
                   childWhenDragging: (state.users.length > 1) ? UserCard(user: state.users[1]) : const Center(child: Text("No other cards")),
                   onDragEnd: (details) {
                     if (details.velocity.pixelsPerSecond.dx < 0) {
-                      context.read<SwipeBloc>()..add(SwipeLeftEvent(user: state.users[0]));
+                      context.read<SwipeBloc>().add(SwipeLeftEvent(user: state.users[0]));
                     } else {
-                      context.read<SwipeBloc>()..add(SwipeRightEvent(user: state.users[0]));
+                      context.read<SwipeBloc>().add(SwipeRightEvent(user: state.users[0]));
                     }
                   },
                   child: (state.users.isNotEmpty) ? UserCard(user: state.users[0]) : const Center(child: Text("No other cards")),
