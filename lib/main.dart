@@ -1,5 +1,7 @@
 import 'package:dating_app/blocs/bloc/swipe_bloc.dart';
+import 'package:dating_app/config/app_router.dart';
 import 'package:dating_app/config/theme.dart';
+import 'package:dating_app/screens/users_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,12 +18,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users)))],
+      providers: [
+        BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users))),
+      ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         theme: theme(),
-        home: const HomeScreen(),
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        initialRoute: HomeScreen.routeName,
       ),
     );
   }

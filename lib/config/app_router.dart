@@ -1,13 +1,18 @@
+import 'package:dating_app/screens/users_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+import '../models/models.dart';
+import '../screens/home_screen.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return _errorRoute();
+        return HomeScreen.route();
       // case HomeScreen.routeName:
       //   return HomeScreen.route();
+      case UsersScreen.routeName:
+        return UsersScreen.route(user: settings.arguments as User);
       default:
         return _errorRoute();
     }
