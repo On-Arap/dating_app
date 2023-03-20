@@ -44,29 +44,32 @@ class HomeScreen extends StatelessWidget {
                     child: (state.users.isNotEmpty) ? UserCard(user: state.users[0]) : const Center(child: Text("No other cards")),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 60),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ChoiceButton(
-                        color: Theme.of(context).colorScheme.secondary,
-                        icon: Icons.clear_rounded,
-                      ),
-                      const ChoiceButton(
-                        width: 80,
-                        height: 80,
-                        size: 30,
-                        color: Colors.white,
-                        hasGradient: true,
-                        icon: Icons.favorite,
-                      ),
-                      ChoiceButton(
-                        color: Theme.of(context).colorScheme.primary,
-                        icon: Icons.watch_later,
-                      ),
-                    ],
+                Hero(
+                  tag: "choice_buttons",
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 60),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ChoiceButton(
+                          color: Theme.of(context).colorScheme.secondary,
+                          icon: Icons.clear_rounded,
+                        ),
+                        const ChoiceButton(
+                          width: 80,
+                          height: 80,
+                          size: 30,
+                          color: Colors.white,
+                          hasGradient: true,
+                          icon: Icons.favorite,
+                        ),
+                        ChoiceButton(
+                          color: Theme.of(context).colorScheme.primary,
+                          icon: Icons.watch_later,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],

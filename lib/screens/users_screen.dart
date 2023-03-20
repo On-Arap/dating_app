@@ -49,28 +49,31 @@ class UsersScreen extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 60),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ChoiceButton(
-                          color: Theme.of(context).colorScheme.secondary,
-                          icon: Icons.clear_rounded,
-                        ),
-                        const ChoiceButton(
-                          width: 80,
-                          height: 80,
-                          size: 30,
-                          color: Colors.white,
-                          hasGradient: true,
-                          icon: Icons.favorite,
-                        ),
-                        ChoiceButton(
-                          color: Theme.of(context).colorScheme.primary,
-                          icon: Icons.watch_later,
-                        ),
-                      ],
+                  child: Hero(
+                    tag: 'choice_buttons',
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 60),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          ChoiceButton(
+                            color: Theme.of(context).colorScheme.secondary,
+                            icon: Icons.clear_rounded,
+                          ),
+                          const ChoiceButton(
+                            width: 80,
+                            height: 80,
+                            size: 30,
+                            color: Colors.white,
+                            hasGradient: true,
+                            icon: Icons.favorite,
+                          ),
+                          ChoiceButton(
+                            color: Theme.of(context).colorScheme.primary,
+                            icon: Icons.watch_later,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
