@@ -34,12 +34,15 @@ class UsersScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(bottom: 40.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      image: DecorationImage(
-                        image: NetworkImage(user.imageUrls[0]),
-                        fit: BoxFit.cover,
+                  child: Hero(
+                    tag: 'user_image',
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        image: DecorationImage(
+                          image: NetworkImage(user.imageUrls[0]),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
