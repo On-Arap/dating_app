@@ -17,6 +17,8 @@ class OnBoardingScreen extends StatelessWidget {
   static const List<Tab> tabs = <Tab>[
     Tab(text: 'Start'),
     Tab(text: 'Email'),
+    Tab(text: 'Email Verification'),
+    Tab(text: 'Demographics'),
   ];
 
   @override
@@ -37,6 +39,8 @@ class OnBoardingScreen extends StatelessWidget {
             children: [
               StartScreen(tabController: tabController),
               Email(tabController: tabController),
+              EmailVerification(tabController: tabController),
+              Demographics(tabController: tabController),
             ],
           ),
         );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/widgets.dart';
 
 class Demographics extends StatelessWidget {
   final TabController tabController;
@@ -13,9 +14,28 @@ class Demographics extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 30.0,
-        vertical: 30.0,
+        vertical: 50.0,
       ),
-      child: Container(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomTextHeader(tabController: tabController, text: 'What\s Your Gender'),
+              CustomCheckbox(tabController: tabController, text: 'MALE'),
+              CustomCheckbox(tabController: tabController, text: 'FEMALE'),
+              CustomCheckbox(tabController: tabController, text: 'OTHER'),
+              const SizedBox(
+                height: 100,
+              ),
+              CustomTextHeader(tabController: tabController, text: 'What\s Your Age'),
+              CustomTextField(tabController: tabController, text: 'Enter Your Age')
+            ],
+          ),
+          CustomButton(tabController: tabController, text: 'NEXT STEP'),
+        ],
+      ),
     );
   }
 }
