@@ -45,7 +45,7 @@ class Biography extends StatelessWidget {
               ),
             ],
           ),
-          CustomButton(tabController: tabController, text: 'NEXT STEP'),
+          CustomFooter(tabController: tabController, index: 5),
         ],
       ),
     );

@@ -4,3 +4,4 @@ export './custom_image_container.dart';
 export './custom_text_container.dart';
 export './custom_text_field.dart';
 export './custom_text_header.dart';
+export './custom_footer.dart';

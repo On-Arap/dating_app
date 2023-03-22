@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'widgets/widgets.dart';
 
 class Email extends StatelessWidget {
@@ -26,7 +27,7 @@ class Email extends StatelessWidget {
               CustomTextField(tabController: tabController, text: 'Enter Your Email'),
             ],
           ),
-          CustomButton(tabController: tabController, text: 'NEXT STEP'),
+          CustomFooter(tabController: tabController, index: 1),
         ],
       ),
     );

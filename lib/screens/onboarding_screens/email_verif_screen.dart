@@ -26,7 +26,7 @@ class EmailVerification extends StatelessWidget {
               CustomTextField(tabController: tabController, text: 'Enter Your Code'),
             ],
           ),
-          CustomButton(tabController: tabController, text: 'NEXT STEP'),
+          CustomFooter(tabController: tabController, index: 2),
         ],
       ),
     );

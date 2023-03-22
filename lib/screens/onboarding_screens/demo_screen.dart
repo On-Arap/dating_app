@@ -33,7 +33,7 @@ class Demographics extends StatelessWidget {
               CustomTextField(tabController: tabController, text: 'Enter Your Age')
             ],
           ),
-          CustomButton(tabController: tabController, text: 'NEXT STEP'),
+          CustomFooter(tabController: tabController, index: 3),
         ],
       ),
     );
