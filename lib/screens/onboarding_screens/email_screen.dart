@@ -21,7 +21,10 @@ class Email extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
-            children: [],
+            children: [
+              CustomTextHeader(tabController: tabController, text: 'What\'s Your Email Address?'),
+              CustomTextField(tabController: tabController, text: 'Enter Your Email'),
+            ],
           ),
           CustomButton(tabController: tabController, text: 'NEXT STEP'),
         ],

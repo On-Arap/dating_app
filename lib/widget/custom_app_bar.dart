@@ -15,23 +15,30 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
+      automaticallyImplyLeading: false,
       elevation: 0,
-      title: Row(
-        children: [
-          Expanded(
-            child: SvgPicture.asset(
-              'assets/logo.svg',
-              height: 50,
+      centerTitle: true,
+      title: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Container(
+                child: SvgPicture.asset(
+                  'assets/logo.svg',
+                  height: 50,
+                ),
+              ),
             ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headlineMedium,
+            Expanded(
+              flex: 2,
+              child: Text(
+                title,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       actions: hasActions
           ? [

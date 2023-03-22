@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 class OnBoardingScreen extends StatelessWidget {
   static const String routeName = '/onboarding';
 
+  const OnBoardingScreen({super.key});
+
   static Route route() {
     return MaterialPageRoute(
       settings: const RouteSettings(name: routeName),
-      builder: (context) => OnBoardingScreen(),
+      builder: (context) => const OnBoardingScreen(),
     );
   }
 
