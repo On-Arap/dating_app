@@ -88,5 +88,18 @@ class User extends Equatable {
         jobTitle: 'Job title',
         bio:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+    const User(
+        id: 6,
+        name: 'Lux',
+        age: 23,
+        imageUrls: [
+          "https://lol-skin.weblog.vc/img/wallpaper/loading/Lux_0.webp",
+          "https://lol-skin.weblog.vc/img/wallpaper/loading/Lux_14.webp",
+          "https://lol-skin.weblog.vc/img/wallpaper/loading/Lux_42.webp",
+        ],
+        interests: ["Music", "Farm", "Damages"],
+        jobTitle: 'Job title',
+        bio:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
   ];
 }

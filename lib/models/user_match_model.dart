@@ -37,5 +37,17 @@ class UserMatch extends Equatable {
       matchedUser: User.users[3],
       chat: Chat.chats.where((chat) => chat.userId == 1 && chat.otherUserId == 4).toList(),
     ),
+    UserMatch(
+      id: 4,
+      userId: 1,
+      matchedUser: User.users[4],
+      chat: Chat.chats.where((chat) => chat.userId == 1 && chat.otherUserId == 5).toList(),
+    ),
+    UserMatch(
+      id: 5,
+      userId: 1,
+      matchedUser: User.users[5],
+      chat: Chat.chats.where((chat) => chat.userId == 1 && chat.otherUserId == 6).toList(),
+    ),
   ];
 }

@@ -2,6 +2,7 @@ import 'package:dating_app/blocs/bloc/swipe_bloc.dart';
 import 'package:dating_app/config/app_router.dart';
 import 'package:dating_app/config/theme.dart';
 import 'package:dating_app/screens/home_screen.dart';
+import 'package:dating_app/screens/matches_screen.dart';
 import 'package:dating_app/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: theme(),
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: OnBoardingScreen.routeName,
+        initialRoute: MatchesScreen.routeName,
       ),
     );
   }
