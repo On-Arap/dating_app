@@ -48,6 +48,45 @@ class MatchesScreen extends StatelessWidget {
                     );
                   },
                 ),
+              ),
+              const SizedBox(height: 10),
+              Text('Your Chats', style: Theme.of(context).textTheme.headlineSmall),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: activeMatches.length,
+                itemBuilder: (context, index) {
+                  return Row(
+                    children: [
+                      UserImgSmall(
+                        height: 70,
+                        width: 70,
+                        img: activeMatches[index].matchedUser.imageUrls[0],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            activeMatches[index].matchedUser.name,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            activeMatches[index].chat![0].messages[0].message,
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: Colors.black54,
+                                ),
+                          ),
+                          Text(
+                            activeMatches[index].chat![0].messages[0].timeString,
+                            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                  color: Colors.black54,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  );
+                },
               )
             ],
           ),
