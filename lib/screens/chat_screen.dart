@@ -48,54 +48,93 @@ class ChatScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: userMatch.chat != null
-            ? Container(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: userMatch.chat![0].messages.length,
-                  itemBuilder: ((context, index) {
-                    return ListTile(
-                        title: userMatch.chat![0].messages[index].senderId == 1
-                            ? Align(
-                                alignment: Alignment.topRight,
-                                child: Container(
-                                  padding: const EdgeInsets.all(8.0),
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Theme.of(context).colorScheme.background),
-                                  child: Text(
-                                    userMatch.chat![0].messages[index].message,
-                                    style: Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                ),
-                              )
-                            : Align(
-                                alignment: Alignment.topLeft,
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 15,
-                                      backgroundImage: NetworkImage(userMatch.matchedUser.imageUrls[0]),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(8.0),
-                                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Theme.of(context).colorScheme.primary),
-                                      child: Text(
-                                        userMatch.chat![0].messages[index].message,
-                                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                              color: Colors.white,
-                                            ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: userMatch.chat != null
+                  ? SizedBox(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: userMatch.chat![0].messages.length,
+                        itemBuilder: ((context, index) {
+                          return ListTile(
+                              title: userMatch.chat![0].messages[index].senderId == 1
+                                  ? Align(
+                                      alignment: Alignment.topRight,
+                                      child: Container(
+                                        padding: const EdgeInsets.all(8.0),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Theme.of(context).colorScheme.background),
+                                        child: Text(
+                                          userMatch.chat![0].messages[index].message,
+                                          style: Theme.of(context).textTheme.bodyMedium,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ));
-                  }),
+                                    )
+                                  : Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Row(
+                                        children: [
+                                          CircleAvatar(
+                                            radius: 15,
+                                            backgroundImage: NetworkImage(userMatch.matchedUser.imageUrls[0]),
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.all(8.0),
+                                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), color: Theme.of(context).colorScheme.primary),
+                                            child: Text(
+                                              userMatch.chat![0].messages[index].message,
+                                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                                    color: Colors.white,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ));
+                        }),
+                      ),
+                    )
+                  : const SizedBox(),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.send_outlined),
+                      color: Colors.white,
+                    )),
+                const Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: 'Type here ...',
+                      contentPadding: EdgeInsets.only(left: 20, bottom: 5, top: 5),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
-              )
-            : Container(),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
