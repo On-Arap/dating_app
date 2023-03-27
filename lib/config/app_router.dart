@@ -4,6 +4,7 @@ import 'package:dating_app/screens/users_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../models/models.dart';
+import '../screens/chat_screen.dart';
 import '../screens/home_screen.dart';
 
 class AppRouter {
@@ -17,6 +18,8 @@ class AppRouter {
         return OnBoardingScreen.route();
       case MatchesScreen.routeName:
         return MatchesScreen.route();
+      case ChatScreen.routeName:
+        return ChatScreen.route(userMatch: settings.arguments as UserMatch);
       default:
         return _errorRoute();
     }

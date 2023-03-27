@@ -55,36 +55,42 @@ class MatchesScreen extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: activeMatches.length,
                 itemBuilder: (context, index) {
-                  return Row(
-                    children: [
-                      UserImgSmall(
-                        height: 70,
-                        width: 70,
-                        img: activeMatches[index].matchedUser.imageUrls[0],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            activeMatches[index].matchedUser.name,
-                            style: Theme.of(context).textTheme.headlineSmall,
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            activeMatches[index].chat![0].messages[0].message,
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                  color: Colors.black54,
-                                ),
-                          ),
-                          Text(
-                            activeMatches[index].chat![0].messages[0].timeString,
-                            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                  color: Colors.black54,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ],
+                  return InkWell(
+                    onTap: () {
+                      print('text');
+                      Navigator.pushNamed(context, '/chat', arguments: activeMatches[index]);
+                    },
+                    child: Row(
+                      children: [
+                        UserImgSmall(
+                          height: 70,
+                          width: 70,
+                          img: activeMatches[index].matchedUser.imageUrls[0],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              activeMatches[index].matchedUser.name,
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              activeMatches[index].chat![0].messages[0].message,
+                              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    color: Colors.black54,
+                                  ),
+                            ),
+                            Text(
+                              activeMatches[index].chat![0].messages[0].timeString,
+                              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    color: Colors.black54,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   );
                 },
               )
