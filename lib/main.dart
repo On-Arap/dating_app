@@ -4,6 +4,7 @@ import 'package:dating_app/config/theme.dart';
 import 'package:dating_app/screens/home_screen.dart';
 import 'package:dating_app/screens/matches_screen.dart';
 import 'package:dating_app/screens/onboarding_screen.dart';
+import 'package:dating_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'models/models.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: theme(),
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: MatchesScreen.routeName,
+        initialRoute: ProfileScreen.routeName,
       ),
     );
   }
