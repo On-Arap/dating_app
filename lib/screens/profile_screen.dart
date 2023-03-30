@@ -1,3 +1,4 @@
+import 'package:dating_app/screens/onboarding_screens/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 import '../widget/widgets.dart';
@@ -68,10 +69,45 @@ class ProfileScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
-              children: const [
-                TitleWithIcon(
-                  title: 'Biography',
-                  icon: Icons.edit,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const TitleWithIcon(title: 'Biography', icon: Icons.edit),
+                Text(user.bio, style: Theme.of(context).textTheme.bodySmall),
+                const TitleWithIcon(title: 'Pictures', icon: Icons.edit),
+                SizedBox(
+                  height: 125,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: user.imageUrls.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 5.0),
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            border: Border.all(color: Theme.of(context).colorScheme.primary),
+                            image: DecorationImage(
+                              image: NetworkImage(user.imageUrls[index]),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                const TitleWithIcon(title: 'Location', icon: Icons.edit),
+                Text('Frejord', style: Theme.of(context).textTheme.bodySmall),
+                const TitleWithIcon(title: 'Interest', icon: Icons.edit),
+                Row(
+                  children: const [
+                    CustomTextContainer(text: 'MUSIC'),
+                    CustomTextContainer(text: 'ECONOMICS'),
+                    CustomTextContainer(text: 'FOOTBALL'),
+                  ],
                 )
               ],
             ),
