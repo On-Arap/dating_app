@@ -1,4 +1,6 @@
+export 'title_with_icon.dart';
 import 'package:flutter/material.dart';
+import 'widgets.dart';
 
 class TitleWithIcon extends StatelessWidget {
   final String title;
@@ -12,17 +14,22 @@ class TitleWithIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.headlineSmall,
+        const CustomDivider(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(icon),
+            )
+          ],
         ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(icon),
-        )
       ],
     );
   }

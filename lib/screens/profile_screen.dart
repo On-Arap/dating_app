@@ -75,17 +75,17 @@ class ProfileScreen extends StatelessWidget {
                 Text(user.bio, style: Theme.of(context).textTheme.bodySmall),
                 const TitleWithIcon(title: 'Pictures', icon: Icons.edit),
                 SizedBox(
-                  height: 125,
+                  height: 50,
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: user.imageUrls.length,
+                    itemCount: 5,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.only(right: 5.0),
                         child: Container(
-                          height: 100,
-                          width: 100,
+                          height: 50,
+                          width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5.0),
                             border: Border.all(color: Theme.of(context).colorScheme.primary),
