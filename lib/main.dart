@@ -1,6 +1,8 @@
-import 'package:dating_app/blocs/bloc/swipe_bloc.dart';
+import 'package:dating_app/blocs/auth/auth_bloc.dart';
+import 'package:dating_app/blocs/swipe/swipe_bloc.dart';
 import 'package:dating_app/config/app_router.dart';
 import 'package:dating_app/config/theme.dart';
+import 'package:dating_app/repositories/auth_repository.dart';
 import 'package:dating_app/screens/onboarding_screen.dart';
 import 'package:dating_app/screens/profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,16 +21,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users))),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: theme(),
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: OnBoardingScreen.routeName,
+    return MultiRepositoryProvider(
+      providers: [RepositoryProvider(create: (_) => AuthRepository())],
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => AuthBloc(
+              authRepository: context.read<AuthRepository>(),
+            ),
+          ),
+          BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users))),
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: theme(),
+          onGenerateRoute: AppRouter.onGenerateRoute,
+          initialRoute: OnBoardingScreen.routeName,
+        ),
       ),
     );
   }
