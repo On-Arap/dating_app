@@ -1,13 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final TabController tabController;
   final String text;
+  final TextEditingController? emailController;
+  final TextEditingController? passwordController;
 
   const CustomButton({
     super.key,
     required this.tabController,
     this.text = 'START',
+    this.emailController,
+    this.passwordController,
   });
 
   @override
@@ -23,7 +28,16 @@ class CustomButton extends StatelessWidget {
           )),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(elevation: 0, backgroundColor: Colors.transparent),
-        onPressed: () {
+        onPressed: () async {
+          if (emailController != null && passwordController != null) {
+            await FirebaseAuth.instance
+                .createUserWithEmailAndPassword(
+                  email: emailController!.text,
+                  password: passwordController!.text,
+                )
+                .then((value) => print("User Added"))
+                .catchError((onError) => print("Failed to add user"));
+          }
           tabController.animateTo(tabController.index + 1);
         },
         child: SizedBox(

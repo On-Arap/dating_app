@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TabController tabController;
+  final TextEditingController controller;
   final String text;
 
   const CustomTextField({
     super.key,
     required this.tabController,
     required this.text,
+    required this.controller,
   });
 
   @override
@@ -28,6 +30,7 @@ class CustomTextField extends StatelessWidget {
               color: Colors.white,
             ),
           )),
+      controller: controller,
     );
   }
 }

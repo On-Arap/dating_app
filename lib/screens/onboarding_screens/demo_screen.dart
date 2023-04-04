@@ -11,6 +11,7 @@ class Demographics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ageController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 30.0,
@@ -30,7 +31,11 @@ class Demographics extends StatelessWidget {
                 height: 100,
               ),
               CustomTextHeader(tabController: tabController, text: 'What\s Your Age'),
-              CustomTextField(tabController: tabController, text: 'Enter Your Age')
+              CustomTextField(
+                tabController: tabController,
+                text: 'Enter Your Age',
+                controller: ageController,
+              )
             ],
           ),
           CustomFooter(tabController: tabController, index: 3),
