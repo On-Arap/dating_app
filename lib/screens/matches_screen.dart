@@ -50,7 +50,7 @@ class MatchesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text('Your Chats', style: Theme.of(context).textTheme.headlineSmall),
+              Text('Your messages', style: Theme.of(context).textTheme.headlineSmall),
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: activeMatches.length,
