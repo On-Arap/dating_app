@@ -48,6 +48,21 @@ ThemeData theme() {
         fontWeight: FontWeight.bold,
         fontSize: 12,
       ),
+      titleLarge: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 18,
+      ),
+      titleMedium: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+      titleSmall: TextStyle(
+        color: Color(0xFF2B2E4A),
+        fontWeight: FontWeight.bold,
+        fontSize: 14,
+      ),
     ),
   );
 }
