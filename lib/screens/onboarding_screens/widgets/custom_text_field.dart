@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TabController tabController;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String text;
+  final Function(String)? onChanged;
 
   const CustomTextField({
     super.key,
     required this.tabController,
     required this.text,
-    required this.controller,
+    this.controller,
+    this.onChanged,
   });
 
   @override
@@ -31,6 +33,7 @@ class CustomTextField extends StatelessWidget {
             ),
           )),
       controller: controller,
+      onChanged: onChanged,
     );
   }
 }

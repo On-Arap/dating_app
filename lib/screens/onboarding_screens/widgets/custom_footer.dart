@@ -28,7 +28,7 @@ class CustomFooter extends StatelessWidget {
           unselectedColor: Theme.of(context).colorScheme.background,
         ),
         const SizedBox(height: 10),
-        CustomButton(tabController: tabController, text: 'NEXT STEP', emailController: emailController, passwordController: passwordController),
+        CustomButton(tabController: tabController, text: 'NEXT STEP'),
       ],
     );
   }
