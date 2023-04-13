@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CustomImageContainer extends StatelessWidget {
   final TabController tabController;
@@ -26,7 +27,10 @@ class CustomImageContainer extends StatelessWidget {
         child: Align(
           alignment: Alignment.bottomRight,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              ImagePicker _picker = ImagePicker();
+              final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+            },
             icon: Icon(
               Icons.add_circle,
               color: Theme.of(context).colorScheme.secondary,
