@@ -1,10 +1,7 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-
 import '../../repositories/database/database_repository.dart';
-
 part 'images_event.dart';
 part 'images_state.dart';
 
@@ -30,6 +27,6 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
   }
 
   Stream<ImagesState> _mapUpdateImagesToState(UpdateImages event, Emitter<ImagesState> emit) async* {
-    yield ImagesLoaded(imageUrls: event.imageUrls);
+    emit(ImagesLoaded(imageUrls: event.imageUrls));
   }
 }

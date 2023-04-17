@@ -34,8 +34,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(create: (_) => SwipeBloc()..add(LoadUsersEvent(users: User.users))),
           BlocProvider(
-            create: (_) => ImagesBloc(databaseRepository: DatabaseRepository())
-              ..add(
+            create: (_) => ImagesBloc(
+              databaseRepository: DatabaseRepository(),
+            )..add(
                 LoadImages(),
               ),
           ),
