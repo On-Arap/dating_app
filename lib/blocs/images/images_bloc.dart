@@ -21,9 +21,12 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
   Stream<ImagesState> _mapLoadImagesToState(LoadImages event, Emitter<ImagesState> emit) async* {
     _databaseSubscription?.cancel();
 
-    _databaseRepository.getUser().listen((user) => add(
-          UpdateImages(user.imageUrls),
-        ));
+    _databaseRepository.getUser().listen((user) {
+      add(
+        UpdateImages(user.imageUrls),
+      );
+      emit(ImagesLoaded(imageUrls: user.imageUrls));
+    });
   }
 
   Stream<ImagesState> _mapUpdateImagesToState(UpdateImages event, Emitter<ImagesState> emit) async* {
