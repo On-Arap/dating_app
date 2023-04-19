@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/widgets.dart';
+import './widgets/widgets.dart';
 
 class Demographics extends StatelessWidget {
   final TabController tabController;

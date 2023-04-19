@@ -1,4 +1,4 @@
-part of 'swipe_bloc.dart';
+part of './swipe_bloc.dart';
 
 abstract class SwipeState extends Equatable {
   final List<User> users;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/images/images_bloc.dart';
-import 'widgets/widgets.dart';
+import './widgets/widgets.dart';
 
 class Pictures extends StatelessWidget {
   final TabController tabController;

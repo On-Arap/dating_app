@@ -1,4 +1,4 @@
-part of 'swipe_bloc.dart';
+part of './swipe_bloc.dart';
 
 abstract class SwipeEvent extends Equatable {
   const SwipeEvent();

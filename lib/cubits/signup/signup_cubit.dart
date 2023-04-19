@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dating_app/repositories/auth_repository.dart';
 import 'package:equatable/equatable.dart';
 
-part 'signup_state.dart';
+part './signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final AuthRepository _authRepository;

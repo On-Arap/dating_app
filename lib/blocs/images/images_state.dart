@@ -1,4 +1,4 @@
-part of 'images_bloc.dart';
+part of './images_bloc.dart';
 
 abstract class ImagesState extends Equatable {
   const ImagesState();

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../models/models.dart';
 
-part 'swipe_event.dart';
-part 'swipe_state.dart';
+part './swipe_event.dart';
+part './swipe_state.dart';
 
 class SwipeBloc extends Bloc<SwipeEvent, SwipeState> {
   SwipeBloc() : super(const SwipeLoading(users: [])) {

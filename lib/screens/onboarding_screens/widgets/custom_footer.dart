@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-import 'widgets.dart';
+import './widgets.dart';
 
 class CustomFooter extends StatelessWidget {
   final TextEditingController? emailController;

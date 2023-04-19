@@ -10,7 +10,7 @@ import 'package:dating_app/screens/profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'models/models.dart';
+import './models/models.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

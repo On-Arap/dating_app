@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../repositories/database/database_repository.dart';
-part 'images_event.dart';
-part 'images_state.dart';
+part './images_event.dart';
+part './images_state.dart';
 
 class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
   final DatabaseRepository _databaseRepository;
