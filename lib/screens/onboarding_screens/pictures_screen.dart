@@ -31,7 +31,11 @@ class Pictures extends StatelessWidget {
               ),
               BlocBuilder<ImagesBloc, ImagesState>(
                 builder: (context, state) {
+                  print(context);
+                  print(state);
                   if (state is ImagesLoading) {
+                    LoadImages();
+
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
