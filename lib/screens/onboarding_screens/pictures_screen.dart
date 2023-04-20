@@ -4,13 +4,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/images/images_bloc.dart';
 import './widgets/widgets.dart';
 
-class Pictures extends StatelessWidget {
+class Pictures extends StatefulWidget {
   final TabController tabController;
 
   const Pictures({
     super.key,
     required this.tabController,
   });
+
+  @override
+  State<Pictures> createState() => _PicturesState();
+}
+
+class _PicturesState extends State<Pictures> {
+  @override
+  void initState() {
+    LoadImages();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +36,7 @@ class Pictures extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextHeader(tabController: tabController, text: 'Add 2 or More Pictures'),
+              CustomTextHeader(tabController: widget.tabController, text: 'Add 2 or More Pictures'),
               const SizedBox(
                 height: 10,
               ),
@@ -34,8 +45,9 @@ class Pictures extends StatelessWidget {
                   print(context);
                   print(state);
                   if (state is ImagesLoading) {
-                    LoadImages();
-
+                    print("Image State = ImagesLoading");
+                    context.read<ImagesBloc>().add(LoadImages());
+                    print("Image Event LoadImages");
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
@@ -69,7 +81,7 @@ class Pictures extends StatelessWidget {
               ),
             ],
           ),
-          CustomFooter(tabController: tabController, index: 4),
+          CustomFooter(tabController: widget.tabController, index: 4),
         ],
       ),
     );
