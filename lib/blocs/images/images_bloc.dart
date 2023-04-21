@@ -21,11 +21,12 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
   Stream<ImagesState> _mapLoadImagesToState(LoadImages event, Emitter<ImagesState> emit) async* {
     _databaseSubscription?.cancel();
 
+    // fix this with the bloc.dev
     _databaseRepository.getUser().listen((user) {
-      emit(ImagesLoaded(imageUrls: user.imageUrls));
       add(
         UpdateImages(user.imageUrls),
       );
+      emit(ImagesLoaded(imageUrls: user.imageUrls));
     });
   }
 
