@@ -42,12 +42,7 @@ class _PicturesState extends State<Pictures> {
               ),
               BlocBuilder<ImagesBloc, ImagesState>(
                 builder: (context, state) {
-                  print(context);
-                  print(state);
                   if (state is ImagesLoading) {
-                    print("Image State = ImagesLoading");
-                    context.read<ImagesBloc>().add(LoadImages());
-                    print("Image Event LoadImages");
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
