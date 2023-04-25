@@ -25,9 +25,7 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
 
     _databaseRepository.getUser().listen((user) {
       emit(ImagesLoaded(imageUrls: user.imageUrls));
-      add(
-        UpdateImages(user.imageUrls),
-      );
+      add(UpdateImages(user.imageUrls));
     });
   }
 
