@@ -42,13 +42,17 @@ class _PicturesState extends State<Pictures> {
               ),
               BlocBuilder<ImagesBloc, ImagesState>(
                 builder: (context, state) {
+                  print('BlocBuilder ImagesBloc');
                   if (state is ImagesLoading) {
+                    print('BlocBuilder ImagesBloc ImagesLoading');
+                    context.read<ImagesBloc>().add(LoadImages());
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
 
                   if (state is ImagesLoaded) {
+                    print('BlocBuilder ImagesBloc ImagesLoaded');
                     var imagesCount = state.imageUrls.length;
 
                     return Column(
@@ -70,6 +74,7 @@ class _PicturesState extends State<Pictures> {
                       ],
                     );
                   } else {
+                    print('BlocBuilder ImagesBloc ImagesLoaded');
                     return const Text("Somthing went wrong");
                   }
                 },

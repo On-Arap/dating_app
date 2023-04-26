@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../repositories/database/database_repository.dart';
 part './images_event.dart';
@@ -7,29 +7,41 @@ part './images_state.dart';
 
 class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
   final DatabaseRepository _databaseRepository;
-  StreamSubscription? _databaseSubscription;
 
   ImagesBloc({required DatabaseRepository databaseRepository})
       : _databaseRepository = databaseRepository,
         super(
           ImagesLoading(),
         ) {
-    on<LoadImages>(_mapLoadImagesToState);
-    on<UpdateImages>(_mapUpdateImagesToState);
+    on<LoadImages>(
+      (event, emit) {
+        print('before userLoaded');
+        _databaseRepository.getUser().listen((user) {
+          print('userLoaded');
+          emit(ImagesLoaded(imageUrls: user.imageUrls));
+          print('ImagesLoaded emit');
+          add(UpdateImages(user.imageUrls));
+          print('add event UpdateImages');
+        });
+      },
+    );
+    on<UpdateImages>(
+      (event, emit) {
+        print('UpdateImages event');
+        emit(ImagesLoaded(imageUrls: event.imageUrls));
+      },
+    );
   }
 
-  Stream<ImagesState> _mapLoadImagesToState(LoadImages event, Emitter<ImagesState> emit) async* {
-    _databaseSubscription?.cancel();
+  @override
+  void onTransition(Transition<ImagesEvent, ImagesState> transition) {
+    super.onTransition(transition);
+    print(transition);
+  }
 
+  void _mapLoadImagesToState(LoadImages event, Emitter<ImagesState> emit) {
     // fix this with the bloc.dev
-
-    _databaseRepository.getUser().listen((user) {
-      emit(ImagesLoaded(imageUrls: user.imageUrls));
-      add(UpdateImages(user.imageUrls));
-    });
   }
 
-  Stream<ImagesState> _mapUpdateImagesToState(UpdateImages event, Emitter<ImagesState> emit) async* {
-    emit(ImagesLoaded(imageUrls: event.imageUrls));
-  }
+  void _mapUpdateImagesToState(UpdateImages event, Emitter<ImagesState> emit) {}
 }
