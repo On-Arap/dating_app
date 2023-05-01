@@ -21,7 +21,6 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
           emit(ImagesLoaded(imageUrls: user.imageUrls));
           print('ImagesLoaded emit');
           add(UpdateImages(user.imageUrls));
-          print('add event UpdateImages');
         });
       },
     );
