@@ -34,7 +34,7 @@ class OnBoardingScreen extends StatelessWidget {
     return DefaultTabController(
       length: tabs.length,
       child: Builder(builder: (BuildContext context) {
-        final TabController tabController = DefaultTabController.of(context)!;
+        final TabController tabController = DefaultTabController.of(context);
         tabController.addListener(() {
           if (!tabController.indexIsChanging) {}
         });

@@ -1,5 +1,4 @@
 import 'package:dating_app/models/models.dart';
-import 'package:dating_app/widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {

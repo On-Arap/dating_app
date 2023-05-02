@@ -6,7 +6,6 @@ import 'package:dating_app/config/theme.dart';
 import 'package:dating_app/repositories/auth_repository.dart';
 import 'package:dating_app/repositories/database/database_repository.dart';
 import 'package:dating_app/screens/onboarding_screen.dart';
-import 'package:dating_app/screens/profile_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
