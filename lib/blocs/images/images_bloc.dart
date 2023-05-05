@@ -14,18 +14,15 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
         ) {
     on<LoadImages>(
       (event, emit) {
-        print('before userLoaded');
         _databaseRepository.getUser().listen((user) {
-          print('userLoaded');
+          print('Debug line : getUser Worked');
           emit(ImagesLoaded(imageUrls: user.imageUrls));
-          print('ImagesLoaded emit');
           add(UpdateImages(user.imageUrls));
         });
       },
     );
     on<UpdateImages>(
       (event, emit) {
-        print('UpdateImages event update ????');
         emit(ImagesLoaded(imageUrls: event.imageUrls));
       },
     );
